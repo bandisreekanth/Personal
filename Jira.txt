@@ -1,0 +1,45 @@
+Jira:
+-----
+1. Goto the provided jira url and provide the user credentials. These are provided by the company.
+2. goto projects then create the project.( This may be created by your manager or any team member)
+3. Create the task (Story point) in the project.
+   (i) Click on Create -> Select the project 
+   (ii) Select the issue type - Story, Bug, Epic.
+   (iii) Epic is bigger part of the story. A Story can be split into multiple sub stories or sub tasks.
+   (iv) Priory need to be specified for the story (task).
+   (v) Add the attachement if anything is there. Then Assign the specific person.
+   (vi) Select the sprint if any sprint is created then click on create button. It creates the story.
+4. Once Story is created you can view in the backlogs link in the left side of the panel.
+5. In backlogs we may also create Sprint with unique number. Add the stories to the sprint 
+6. Once Sprint is created then start the sprint by click on Start sprint and select the sprint which we need to run
+7. Before starting any task, Goto Boards->Team board -> Select the take and you can see all the activities in right panel of the window. 
+8. We can also add the comments in the comment section for the task. 
+9. Activity shows the following - All, Comments, Work Log, History, Activity
+10. Status of the task is - TODO, In Progress, InComplete, Done, Closed,etc..
+11. In Team borad we can see the Sprint Report with timelines.
+Create a bug
+1. Click on Create -> Open the Create Issue window.
+2. Select the Project, Issue type (Bug), Summary, Description with an attachement.
+3. Select Prioriy
+4. Assign to specific person
+5. Any Epic Link then specify
+6. Select the Sprint
+7. Click on Create button then Bug is created.
+How many issues :
+1. Click on issues -> you will get My open Issues.
+2. Here you will see the history of the issues. (Issue can be In Progress state)
+3. Here we have filters like Project, Type, Status, Current User.
+4. Fix the issue by specifying the comment and click submit button then mail will get automatically.
+5. Once fix the issue then closing or reopen the issue. The history is displayed here.
+6. you can also view the Reports in Piechar representaion
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,81 @@
+
+GitHUB setup in Windows:
+-----------------------
+1. Create your own git repository using email verification
+2. Need to instal 'Git Bash' from official git website.
+
+Need to execute the following commands,
+1. cd --> Chnage directory
+2. cd /d --> connect to the d drive
+3. ls --> list of files available in the drive is displayed..
+4. cd git --> created the git folder and opens that folder
+
+Created the the repository in the GitHub. Eg: https://github.com/bandisreekanth/TestGIT.git
+
+1. git config --global user.name "bandisreekanth" --> configuring username
+2. git config --global user.email "bandi.sreekanth@gmail.com" --> Configuring email id
+3. git clone https://github.com/bandisreekanth/TestGIT.git --> connect with our repository
+4. cd repository_name -> Create the repository
+5. git add Sreekanth_Automation --> Created the project and copied into the specific folder
+6. git status --> display the status of the application
+7. git commit -m "Sreekanth_Automation" --> Commit the build 
+8. git push -u origin master --> copied from local system to git repository
+9. git commit -m "second commit" "Sreekanth_Automation" --> This command for second commit.
+
+
+Import build from GitHub to Eclipse.
+
+1. Goto Windows option -->Perspectives -> open Perspectives -> Git
+2. then click open button
+3. opens the Git Repository.
+4. Select the Clone git repository option (select from the buttons)
+5. 
+
+
+Git:
+---
+1. goto official git website (https://git-scm.com/)
+2. download and install for windows
+3. Create the local repository folder.
+4. for cloning the project from git server to local system  
+	git clone "https://github.com/bandisreekanth/SampleMaven.git"
+5. Open Eclipse -> Import the existing maven project as the cloned project and run the project..
+
+
+How to add file to git repository
+---------------------------------
+
+git status (modifications are like red color)
+git add .  (adding all the files. or you may specify the specific file name)
+git status (modifications are in green color)
+git commit -m "give the description"
+git push -u origin master
+
+
+
+How to get files from remote repository:
+---------------------------------------
+
+git status
+git pull https://github.com/bandisreekanth/SampleMaven.git
+
+
+Git Branching:
+-------------
+
+We have repository , writing some code 
+We need to create one branch in the repository
+
+git checkout -b sreekanth_local
+
+
+
+
+
+
+
+
+
+
+
+

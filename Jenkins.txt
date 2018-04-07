@@ -1,0 +1,218 @@
+Jenkins Installation and How Jenkins Work:
+-----------------------------------------
+
+1. Download Apache Tomcat - https://tomcat.apache.org/
+2. Download Jenkins.war file and placed in the 'webapps' folder of tomcat. Eg:C:\Program Files\Apache Software Foundation\Tomcat 8.0\webapps
+3. open apache tomcat /bin folder -> double click on the startup.bat file.
+4. open "http://localhost:8080/jenkins" -> then jenkins will open.
+5. Click 'New Item" and Select the "Freestype Project". click ok button. (Your project is created)
+
+
+
+
+TestNG Execution through Jenkins --
+-----------------------------------
+1. Open Jenkins through the url : http://localhost:8080/jenkins
+2. Click on 'New Item' -> Enter an item Name here. Eg: FirstJenkins
+3. Select 'Freestype Project' and click 'OK' button.
+4. Open the project as 'FirstJenkins' and save it and click on 'Build Now'. Build was sucessful but not did any configuration.
+
+Congiguration Settings:
+----------------------
+1. Goto Congiguration of the project.
+2. General -> Click on Advanced -> Select 'Use custom workspace'
+3. Give the Directory as the project folder. Eg:D:\sreekanth\SampleTestNG
+4. Goto Build -> Invoke top -level Maven targets ->
+5. Maven Version : M2_HOME
+   goals: test -DsuiteXmlFile=testng.xml  (click on Advanced)
+   POM: pom.xml
+6. Post-build Actions -> publish TestNG Results ->
+7. Add the below code into the pom.xml file of the project
+<build>
+  <plugins>
+   <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.1</version>
+    <configuration>
+     <source>1.8</source>
+     <target>1.8</target>
+    </configuration>
+   </plugin>
+   <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-surefire-plugin</artifactId>
+    <version>2.19.1</version>
+    <configuration>
+     <suiteXmlFiles>
+      <suiteXmlFile>testNG.xml</suiteXmlFile>
+<!--       <suiteXmlFile>testNG2.xml</suiteXmlFile> -->
+     </suiteXmlFiles>
+    </configuration>
+   </plugin>
+  </plugins>
+ </build>?
+
+	
+
+Configuring the System Property variables in Jenkins:
+----------------------------------------------------
+
+1. Goto pom.xml file -> create the property variables as follows, (Here adding 3 variables url, username and environment)
+	<configuration>
+	  <systemPropertyVariables>
+	    <url>${Durl}</url>
+	    <username>${Dusername}</username>
+	    <environment>${environment}</environment>
+	  </systemPropertyVariables>
+	</configuration>
+
+2. Goto 'Configuration' of the project (http://localhost:8080/jenkins/job/FirstJenkins/configure)
+3. Click on 'Advanced' and select 'This project is Parameterized' option
+4. Click on 'Add Parameter' -> 'String Parameter' or 'Choice Parameter' (Choice parameter is like dropdown - values are given as line by line)
+5. Give Name, Default Value -> Apply and save configuation 
+	Eg: Name : Url 
+	    Default value: https://www.google.co.in/
+
+7. In the project you can call these as,
+	Eg:  	String username=System.getProperty("url");
+		System.out.println("Second variable is :"+username);
+		Reporter.log("Second Data is :"+username);
+
+8. Click on 'Build with Parameters'. ( Here you can see the Property variables with values).
+9. If you want change the Parameters then change here and then click 'Build' button.
+
+
+GitRepository Project from Jenkins
+----------------------------------
+
+1. Create the Sample Project 
+2. In Source Code Management -> Select Git
+3. Here configure Git Repository with URL and User Credentials
+4. Click on Build - click on advanced
+	give Maven version :M2_Home
+	Goals : clean test
+	POM: pom.xml
+5. Click on Post-build Actions -> select Email Notifications ( Need to add email reports plugin)
+6. Give your Email ID. you will get the reports for the specified email id.
+
+
+Jenkins Points to remember:
+--------------------------
+
+1. Jenkins used for Continuous Integration.
+2. (i) developer commits the source code in the Git Repository (any repository) 
+   (ii) Jenkins Cheks the shared repository at periodic intervals and everything is pulled and then build (Jenkins server)
+   (iii) Jenkins deploys the build application on the test server (Selenium)
+   (iv) on the successful test result the build is moved to the production server.If the build fails, then the concerned team will be notified.
+3. Benifits of jenkins
+    (i) At integration stage, build failures are cached.
+    (ii) For each change in the source code an automatic build report notification is generated.
+    (iii) To notify developers about build report success or failure, it is integrated with LDAP mail server.
+    (iv) Achieves continuous integration agile development and test driven development. 
+    (v) With simple steps, maven release project is automated.
+    (vi) Easy tracking of bugs at early stage in development environment than production
+
+Framework:
+----------
+
+1. We designed the Hybrid Framework which is a combination of datadriven and keyworkdriven.
+2. Framework structure is as follows
+   (i) Set of testcases are defined as the java file in testCases folder. Every testcase has a separte java file. it calls the excelsheet where we defined the test data.
+   (ii) Excelsheet defined in resources folder. Excelsheet has deined as three sheets - TestCases, Keywords and Data. Testcases sheet has TCID and Runmode. Keyworkds sheet has TCID, Description, Keyword, Object and Data. Data Sheet have testcaseName, Data fields defination and values.
+  (iii) BaseTest class defined in testBase folder. It contains the action that is performed aftertest and defined the dataprovider annotation.
+  (iv) ExtentManager class defined in extentManager folder which consists of configuration with ReportConfig.xml file where specify descrtiption about the report.
+  (v) testKeywords folder defines the keywords. Here there exist 3 classes Keywords, GenericKeywords and AppKeywords.All the keywords implementation is here.
+  (vi) testUtil folder consists of the Constants declaration for the project, DataUtils which is used to call the dataprovider based on the testcase defination. Xls_reader.java file for defining different methods to access the excelsheet.
+  (vii) Properties file defined in Resources folder which is called in the keyword defination class.
+  (viiii) Set of testcases are defined in testng.xml file and all the dependenties are added in the pom.xml file.
+ (ix) After running the testcases the results are stored in the extent reports in the Reports folder.
+ (x) The screenshots for the application has taken and stored in the screenshot folder.
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

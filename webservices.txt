@@ -1,0 +1,21 @@
+WebServices:  PostMan
+------------
+1. Postman is addon to chrome browser...
+2. Search 'Postman rest client' then add to chrome browser.
+3. Click on add to chrome and click on add app.
+4. Supply username and password or signin with google account
+5. After successful login open the postman interface.
+6. Once open the postman interface. Click on the 'Postman Interceptor' at the top of the window.
+7. click on the interceptor and install it. Then add the 'postman iterceptor as addon to chome and displayed on the top right corner.
+
+i. Google API through postman
+-----------------------------
+1. Copy the URL of the google (https://www.google.co.in/) in the postman tool and select GET option
+2. Click on Send button. Here you can see Cookies, Time, Test Results, etc..
+3. Click on Save button and give RequestName (get_google) and create collection and save.
+
+PostMan :
+-------
+
+
+
